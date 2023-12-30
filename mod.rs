@@ -26,6 +26,8 @@ pub mod ClassKit;
 pub mod CloudKit;
 #[cfg(feature = "Contacts")]
 pub mod Contacts;
+#[cfg(feature = "CoreBluetooth")]
+pub mod CoreBluetooth;
 #[cfg(feature = "CoreData")]
 pub mod CoreData;
 #[cfg(feature = "CoreLocation")]
