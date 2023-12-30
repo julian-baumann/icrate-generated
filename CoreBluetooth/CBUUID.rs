@@ -58,10 +58,6 @@ extern_methods!(
         #[method_id(@__retain_semantics Other UUIDWithData:)]
         pub unsafe fn UUIDWithData(the_data: &NSData) -> Id<CBUUID>;
 
-        #[deprecated]
-        #[method_id(@__retain_semantics Other UUIDWithCFUUID:)]
-        pub unsafe fn UUIDWithCFUUID(the_uuid: CFUUIDRef) -> Id<CBUUID>;
-
         #[cfg(feature = "Foundation_NSUUID")]
         #[method_id(@__retain_semantics Other UUIDWithNSUUID:)]
         pub unsafe fn UUIDWithNSUUID(the_uuid: &NSUUID) -> Id<CBUUID>;
