@@ -76,22 +76,6 @@ extern_methods!(
         #[method_id(@__retain_semantics Init init)]
         pub unsafe fn init(this: Allocated<Self>) -> Id<Self>;
 
-        #[method_id(@__retain_semantics Init initWithDelegate:queue:)]
-        pub unsafe fn initWithDelegate_queue(
-            this: Allocated<Self>,
-            delegate: Option<&ProtocolObject<dyn CBCentralManagerDelegate>>,
-            queue: Option<&dispatch_queue_t>,
-        ) -> Id<Self>;
-
-        #[cfg(all(feature = "Foundation_NSDictionary", feature = "Foundation_NSString"))]
-        #[method_id(@__retain_semantics Init initWithDelegate:queue:options:)]
-        pub unsafe fn initWithDelegate_queue_options(
-            this: Allocated<Self>,
-            delegate: Option<&ProtocolObject<dyn CBCentralManagerDelegate>>,
-            queue: Option<&dispatch_queue_t>,
-            options: Option<&NSDictionary<NSString, AnyObject>>,
-        ) -> Id<Self>;
-
         #[cfg(all(
             feature = "CoreBluetooth_CBPeripheral",
             feature = "Foundation_NSArray",
@@ -237,22 +221,6 @@ extern_protocol!(
             &self,
             central: &CBCentralManager,
             peripheral: &CBPeripheral,
-            error: Option<&NSError>,
-        );
-
-        #[cfg(all(
-            feature = "CoreBluetooth_CBCentralManager",
-            feature = "CoreBluetooth_CBPeripheral",
-            feature = "Foundation_NSError"
-        ))]
-        #[optional]
-        #[method(centralManager:didDisconnectPeripheral:timestamp:isReconnecting:error:)]
-        unsafe fn centralManager_didDisconnectPeripheral_timestamp_isReconnecting_error(
-            &self,
-            central: &CBCentralManager,
-            peripheral: &CBPeripheral,
-            timestamp: CFAbsoluteTime,
-            is_reconnecting: bool,
             error: Option<&NSError>,
         );
 

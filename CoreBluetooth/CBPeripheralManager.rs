@@ -88,22 +88,6 @@ extern_methods!(
         #[method_id(@__retain_semantics Init init)]
         pub unsafe fn init(this: Allocated<Self>) -> Id<Self>;
 
-        #[method_id(@__retain_semantics Init initWithDelegate:queue:)]
-        pub unsafe fn initWithDelegate_queue(
-            this: Allocated<Self>,
-            delegate: Option<&ProtocolObject<dyn CBPeripheralManagerDelegate>>,
-            queue: Option<&dispatch_queue_t>,
-        ) -> Id<Self>;
-
-        #[cfg(all(feature = "Foundation_NSDictionary", feature = "Foundation_NSString"))]
-        #[method_id(@__retain_semantics Init initWithDelegate:queue:options:)]
-        pub unsafe fn initWithDelegate_queue_options(
-            this: Allocated<Self>,
-            delegate: Option<&ProtocolObject<dyn CBPeripheralManagerDelegate>>,
-            queue: Option<&dispatch_queue_t>,
-            options: Option<&NSDictionary<NSString, AnyObject>>,
-        ) -> Id<Self>;
-
         #[cfg(all(feature = "Foundation_NSDictionary", feature = "Foundation_NSString"))]
         #[method(startAdvertising:)]
         pub unsafe fn startAdvertising(
